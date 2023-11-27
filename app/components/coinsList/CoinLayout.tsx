@@ -15,7 +15,7 @@ interface Props {
 const CoinLayout: React.FC<Props> = ({ coin, currentUser }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const currency = searchParams.get(SEARCH_PARAMS_KEYS.CURRENCY);
+  const currency = searchParams.get(SEARCH_PARAMS_KEYS.CURRENCY) || 'usd';
   const favouriteUserCoins = currentUser?.coins.map((coin) => coin.symbol);
   const favouriteCoin = favouriteUserCoins?.includes(coin.symbol);
   const handleClick = () => {
@@ -43,7 +43,9 @@ const CoinLayout: React.FC<Props> = ({ coin, currentUser }) => {
           </div>
         </div>
       </td>
-      <td className="text-right">{coin.current_price}</td>
+      <td className="text-right">
+        {formatNumber(coin.current_price, currency)}
+      </td>
       <td
         className={`text-right ${
           coin.price_change_percentage_24h > 0
@@ -55,7 +57,9 @@ const CoinLayout: React.FC<Props> = ({ coin, currentUser }) => {
       </td>
       <td className="text-right">{coin.low_24h}</td>
       <td className="text-right">{coin.high_24h}</td>
-      <td className="text-right w-[12rem]">{formatNumber(coin.market_cap)}</td>
+      <td className="text-right w-[12rem]">
+        <p>{formatNumber(coin.market_cap, currency)}</p>
+      </td>
     </tr>
   );
 };

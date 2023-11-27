@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "formik": "^2.4.5",
-    "next": "14.0.2",
+    "next": "latest",
     "next-themes": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",
