@@ -9,9 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "formik": "^2.4.5",
+    "next": "14.0.2",
+    "next-themes": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.0.2"
+    "react-hot-toast": "^2.4.1",
+    "react-icons": "^4.11.0",
+    "zod": "^3.22.4",
+    "zod-formik-adapter": "^1.2.0",
+    "zustand": "^4.4.6"
   },
   "devDependencies": {
     "typescript": "^5",
