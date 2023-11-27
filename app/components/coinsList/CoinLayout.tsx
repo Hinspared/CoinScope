@@ -3,8 +3,9 @@ import React from 'react';
 import Image from 'next/image';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import formatNumber from '@/app/utils/helpers/formatNumber';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import type { Coin, SafeUser } from '@/app/utils/types';
+import { SEARCH_PARAMS_KEYS } from '@/app/utils/constants';
 
 interface Props {
   coin: Coin;
@@ -13,6 +14,8 @@ interface Props {
 
 const CoinLayout: React.FC<Props> = ({ coin, currentUser }) => {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const currency = searchParams.get(SEARCH_PARAMS_KEYS.CURRENCY);
   const favouriteUserCoins = currentUser?.coins.map((coin) => coin.symbol);
   const favouriteCoin = favouriteUserCoins?.includes(coin.symbol);
   const handleClick = () => {
@@ -52,7 +55,7 @@ const CoinLayout: React.FC<Props> = ({ coin, currentUser }) => {
       </td>
       <td className="text-right">{coin.low_24h}</td>
       <td className="text-right">{coin.high_24h}</td>
-      <td className="text-right w-[12rem]">{coin.market_cap}</td>
+      <td className="text-right w-[12rem]">{formatNumber(coin.market_cap)}</td>
     </tr>
   );
 };

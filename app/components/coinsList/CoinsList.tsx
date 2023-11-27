@@ -8,7 +8,7 @@ import SearchBar from './SearchBar';
 import type { Coin, SafeUser } from '@/app/utils/types';
 import type { ReadonlyURLSearchParams } from 'next/navigation';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { SearchParamsKeys } from '@/app/utils/constants';
+import { SEARCH_PARAMS_KEYS } from '@/app/utils/constants';
 
 interface CoinList {
   coins: Coin[];
@@ -30,7 +30,7 @@ const CoinsList: React.FC<CoinList> = ({ coins, currentUser }) => {
   const newSearchParams = new URLSearchParams(
     searchParams as ReadonlyURLSearchParams
   );
-  const currencyCode = searchParams?.get(SearchParamsKeys.CURRENCY) || 'usd';
+  const currencyCode = searchParams?.get(SEARCH_PARAMS_KEYS.CURRENCY) || 'usd';
   // sort functionality
   const [active, setActive] = React.useState(''); //emphasize sorted parameter
   const [sorted, setSorted] = React.useState(coins);
@@ -53,7 +53,7 @@ const CoinsList: React.FC<CoinList> = ({ coins, currentUser }) => {
   const handleCurrencyClick = (e: React.MouseEvent) => {
     const target = e.target as Element;
     const currencyCode = target.innerHTML;
-    newSearchParams.set(SearchParamsKeys.CURRENCY, currencyCode);
+    newSearchParams.set(SEARCH_PARAMS_KEYS.CURRENCY, currencyCode);
     router.push(pathname + '?' + newSearchParams);
   };
 

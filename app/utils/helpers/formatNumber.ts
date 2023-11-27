@@ -1,6 +1,6 @@
 export default function formatNumber(
   num: number,
-  currencyCode?: string
+  currencyCode = 'USD'
 ): number | string {
   const strNum = num.toString();
   const decimalIndex = strNum.indexOf('.');
