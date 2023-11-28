@@ -54,7 +54,7 @@ const CoinsList: React.FC<CoinList> = ({ coins, currentUser }) => {
     const target = e.target as Element;
     const currencyCode = target.innerHTML;
     newSearchParams.set(SEARCH_PARAMS_KEYS.CURRENCY, currencyCode);
-    router.push(pathname + '?' + newSearchParams);
+    router.push(pathname + '?' + newSearchParams, { scroll: false });
   };
 
   return (

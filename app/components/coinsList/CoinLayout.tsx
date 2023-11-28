@@ -21,10 +21,11 @@ const CoinLayout: React.FC<Props> = ({ coin, currentUser }) => {
   const handleClick = () => {
     router.push(`/coins/${coin.id}`);
   };
+  // bg-[#eaebf5] dark:bg-[#0d0e30]
   return (
     <tr className="h-20">
       <td
-        className="mr-auto sticky left-0 bg-[#eaebf5] dark:bg-[#0d0e30] w-[12rem] cursor-pointer"
+        className="mr-auto sticky left-0 w-[12rem] cursor-pointer"
         onClick={handleClick}
       >
         <div className="flex gap-3 items-center">

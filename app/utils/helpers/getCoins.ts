@@ -24,11 +24,11 @@ export default async function getCoins(
     ...queryParamsFromSearchParams,
   ]);
 
-  const queryParams = Object.fromEntries(uniqueQueryParams);
+  const queryParams = new URLSearchParams(
+    Object.fromEntries(uniqueQueryParams) as Record<string, string>
+  );
 
-  const apiUrl = `${process.env.API_URL}/coins/markets?${new URLSearchParams(
-    queryParams as Record<string, string>
-  )}`;
+  const apiUrl = `${process.env.API_URL}/coins/markets?${queryParams}`;
   try {
     const res = await fetch(apiUrl);
     const data = await res.json();
@@ -41,7 +41,6 @@ export default async function getCoins(
     }
   } catch (error) {
     error instanceof Error && console.error(error.cause, error.message);
-    // Return an empty array or handle the error case appropriately
     return [];
   }
 }
