@@ -2,6 +2,7 @@ export default function formatNumber(
   num: number,
   currency?: string
 ): number | string {
+  if (typeof num !== 'number') return num;
   const strNum = num.toString();
   const decimalIndex = strNum.indexOf('.');
   const decimals = strNum.slice(decimalIndex + 1);

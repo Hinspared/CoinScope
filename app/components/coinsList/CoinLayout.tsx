@@ -44,11 +44,11 @@ const CoinLayout: React.FC<Props> = ({ coin, currentUser }) => {
           </div>
         </div>
       </td>
-      <td className="text-right w-1/6">
+      <td className="text-right w-1/5">
         {formatNumber(coin.current_price, currency)}
       </td>
       <td
-        className={`text-right w-1/6 ${
+        className={`text-right w-1/5 ${
           coin.price_change_percentage_24h > 0
             ? 'text-green-600'
             : 'text-red-600'
@@ -56,11 +56,8 @@ const CoinLayout: React.FC<Props> = ({ coin, currentUser }) => {
       >
         {formatNumber(coin.price_change_percentage_24h)}%
       </td>
-      <td className="text-right w-1/6">
-        {formatNumber(coin.low_24h, currency)}
-      </td>
-      <td className="text-right w-1/6">
-        {formatNumber(coin.high_24h, currency)}
+      <td className="text-right w-1/5">
+        {formatNumber(coin.total_volume, currency)}
       </td>
       <td className="text-right w-[12rem] pr-4">
         <p>{formatNumber(coin.market_cap, currency)}</p>

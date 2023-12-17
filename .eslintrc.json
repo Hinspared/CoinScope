@@ -1,3 +1,9 @@
 {
+  "rules": {
+    "no-unused-vars": [
+      "warn",
+      { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }
+    ]
+  },
   "extends": "next/core-web-vitals"
 }
