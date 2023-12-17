@@ -18,7 +18,7 @@ const Stat: React.FC<StatProps> = ({ active, stat, condition, onClick }) => {
   const isActiveStat = active === stat.key;
   return (
     <th
-      className="py-5 first:sticky left-0 bg-[#eaebf5] dark:bg-[#0d0e30] cursor-pointer overflow-x-auto"
+      className="py-5 first:sticky left-0 bg-[#eaebf5] dark:bg-[#0d0e30] cursor-pointer overflow-x-auto first:pl-4 last:pr-4"
       data-value={stat.key}
       onClick={onClick}
     >
