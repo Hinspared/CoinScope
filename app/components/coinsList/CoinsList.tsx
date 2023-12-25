@@ -6,10 +6,10 @@ import type { Coin, SafeUser } from '@/app/utils/types';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { SEARCH_PARAMS_KEYS } from '@/app/utils/constants';
 
-interface CoinList {
+type CoinList = {
   coins: Coin[];
   currentUser: null | SafeUser | undefined;
-}
+};
 const stats = [
   { key: 'name', name: 'Coin' },
   { key: 'current_price', name: 'Price' },

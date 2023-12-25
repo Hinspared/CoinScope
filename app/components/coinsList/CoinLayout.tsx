@@ -25,7 +25,7 @@ const CoinLayout: React.FC<Props> = ({ coin, currentUser }) => {
   return (
     <tr className="h-20">
       <td
-        className="mr-auto sticky left-0 w-[12rem] cursor-pointer pl-4"
+        className="sticky left-0 w-2/6 cursor-pointer pl-4"
         onClick={handleClick}
       >
         <div className="flex gap-3 items-center">
@@ -44,11 +44,11 @@ const CoinLayout: React.FC<Props> = ({ coin, currentUser }) => {
           </div>
         </div>
       </td>
-      <td className="text-right w-1/5">
+      <td className="text-right w-1/6">
         {formatNumber(coin.current_price, currency)}
       </td>
       <td
-        className={`text-right w-1/5 ${
+        className={`text-right w-1/6 ${
           coin.price_change_percentage_24h > 0
             ? 'text-green-600'
             : 'text-red-600'
@@ -56,10 +56,10 @@ const CoinLayout: React.FC<Props> = ({ coin, currentUser }) => {
       >
         {formatNumber(coin.price_change_percentage_24h)}%
       </td>
-      <td className="text-right w-1/5">
+      <td className="text-right w-1/6">
         {formatNumber(coin.total_volume, currency)}
       </td>
-      <td className="text-right w-[12rem] pr-4">
+      <td className="text-right w-1/6 pr-4">
         <p>{formatNumber(coin.market_cap, currency)}</p>
       </td>
     </tr>
